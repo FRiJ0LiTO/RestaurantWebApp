@@ -10,9 +10,13 @@
     <h2>{{ meal.1 }}</h2>
         {% for m in item_list %}
              {% if m.meal_type == meal.0 %}
-                <h3>{{ m.meal }}</h3>
-                <p>{{ m.description }}</p>
-                <p>{{ m.price }}</p>
+                 {% if m.status == 1 %}
+                     <h3>{{ m.meal }}</h3>
+                     <p>{{ m.description }}</p>
+                 {% else %}
+                     <h3><del>{{ m.meal }}</del> - Not available</h3>
+                     <p>{{ m.description }}</p>
+                 {% endif %}
              {% endif %}
         {% endfor %}
     {% endfor %}

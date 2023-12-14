@@ -6,7 +6,7 @@ from .models import Item, MEAL_TYPE
 class MenuList(generic.ListView):
     # queryset se usa para filtrar los datos que se van a mostrar en la vista
     # En este caso, se hace referencia al modelo Item
-    queryset = Item.objects.order_by('-date_created')
+    queryset = Item.objects.get_queryset()
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
